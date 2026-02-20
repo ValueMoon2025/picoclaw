@@ -1,0 +1,28 @@
+{
+  "name": "PicoClaw Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/go:1.21",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "ms-vscode.makefile-tools"
+      ],
+      "settings": {
+        "go.toolsManagement.autoUpdate": true,
+        "go.useLanguageServer": true
+      }
+    }
+  },
+  "postCreateCommand": "go version && go mod download",
+  "portsAttributes": {
+    "7860": {
+      "label": "PicoClaw Gateway",
+      "onAutoForward": "open-browser"
+    }
+  },
+  "forwardPorts": [7860],
+  "remoteUser": "root"
+}
